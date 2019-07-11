@@ -1,7 +1,7 @@
 package cn.jboa.entity;
 
 /**
- * 员工
+ *  employee-员工，雇员
  */
 public class Employee implements java.io.Serializable{
 	private static final long serialVersionUID = 1035721299787840813L;
