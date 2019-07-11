@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+	<property name="show_sql">true</property>	
+	<property name="connection.url">
+		jdbc:oracle:thin:@127.0.0.1:1521:orcl
+	</property>
+	<property name="connection.username">scott</property>
+	<property name="connection.password">tiger</property>
+	<property name="connection.driver_class">
+		oracle.jdbc.driver.OracleDriver
+	</property>
+	<property name="dialect">
+		org.hibernate.dialect.OracleDialect
+	</property>
+	<property name="format_sql">true</property>
+	<mapping resource="cn/jboa/entity/Employee.hbm.xml" />
+	<mapping resource="cn/jboa/entity/ClaimVoucher.hbm.xml" />
+	<mapping resource="cn/jboa/entity/ClaimVoucherDetail.hbm.xml" />
+	<mapping resource="cn/jboa/entity/CheckResult.hbm.xml" />
+	<mapping resource="cn/jboa/entity/Department.hbm.xml" />
+	<mapping resource="cn/jboa/entity/Position.hbm.xml" />
+	<mapping resource="cn/jboa/entity/ClaimVoucherStatistics.hbm.xml"/>
+	<mapping resource="cn/jboa/entity/ClaimVouyearStatistics.hbm.xml"/>
+	<mapping resource="cn/jboa/entity/Leave.hbm.xml"/>
+</session-factory>
+</hibernate-configuration>

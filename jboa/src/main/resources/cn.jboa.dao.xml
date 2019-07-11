@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!--用户dao配置	-->
+	<bean id="empDao" class="cn.jboa.dao.impl.EmployeeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="claimVoucherDao" class="cn.jboa.dao.impl.ClaimVoucherDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="claimVoucherDetailDao" class="cn.jboa.dao.impl.ClaimVoucherDetailDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="checkResultDao" class="cn.jboa.dao.impl.CheckResultDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="claimVoucherStatisticsDao" class="cn.jboa.dao.impl.ClaimVoucherStatisticsDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="claimVouYearStatisticsDao" class="cn.jboa.dao.impl.ClaimVouYearStatisticsDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="leaveDao" class="cn.jboa.dao.impl.LeaveDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+</beans>

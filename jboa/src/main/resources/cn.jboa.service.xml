@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<import resource="cn.jboa.dao.xml" />
+	<import resource="cn.jboa.mail.xml"/>
+	<!--用户service配置		-->
+	<bean id="empService"
+		class="cn.jboa.service.impl.EmployeeServiceImpl">
+		<property name="empDao" ref="empDao" />
+	</bean>
+	<bean id="claimVoucherService"
+		class="cn.jboa.service.impl.ClaimVoucherServiceImpl">
+		<property name="claimVoucherDao" ref="claimVoucherDao" />
+
+		<property name="employeeDao" ref="empDao"></property>
+		
+
+		<property name="claimVoucherDetailDao" ref="claimVoucherDetailDao" />
+
+	</bean>
+	<bean id="claimVoucherDetailService"
+		class="cn.jboa.service.impl.ClaimVoucherDetailServiceImpl">
+		<property name="claimVoucherDetailDao" ref="claimVoucherDetailDao" />
+	</bean>
+	<bean id="checkResultService"
+		class="cn.jboa.service.impl.CheckResultServiceImpl">
+		<property name="checkResultDao" ref="checkResultDao" />
+		<property name="employeeDao" ref="empDao" />
+		<property name="claimVoucherDao" ref="claimVoucherDao" />
+	</bean>
+	<bean id="claimVoucherStatisticsService" 
+		class="cn.jboa.service.impl.ClaimVoucherStatisticsServiceImpl">
+		<property name="statisticsDao" ref="claimVoucherStatisticsDao"/>
+	</bean>
+
+	<bean id="claimVouyearStatisticsService"
+		class="cn.jboa.service.impl.ClaimVouyearStatisticsServiceImpl">
+		<property name="dao" ref="claimVouYearStatisticsDao"></property>
+	</bean>
+	<bean id="mailService" class="cn.jboa.service.impl.MailServiceImpl">
+		<property name="mailSender" ref="mailSender"></property>
+		<property name="freeMarkerConfiguration" ref="freeMarkerConfiguration"></property>
+	</bean>
+
+	<bean id="leaveService" 
+		class="cn.jboa.service.impl.LeaveServiceImpl">
+		<property name="leaveDao" ref="leaveDao"/>
+		<property name="empDao" ref="empDao"/>
+		<property name="mailService" ref="mailService"/>
+	</bean>
+
+</beans>

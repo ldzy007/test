@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<import resource="cn.jboa.service.xml" />
+	<bean id="randomAction" class="cn.jboa.action.RandomAction"
+		singleton="false">
+	</bean>
+	<!--用户action配置		-->
+	<bean id="empAction" class="cn.jboa.action.EmployeeAction" singleton="false">
+		<property name="empService" ref="empService"></property>
+	</bean>
+	<bean id="claimVoucherAction" class="cn.jboa.action.ClaimVoucherAction" singleton="false">
+		<property name="claimVoucherService" ref="claimVoucherService"></property>
+	</bean>
+
+	<bean id="deptMonthStatisticsAction" class="cn.jboa.action.DeptMonthStatisticsAction" singleton="false">
+		<property name="statisticsService" ref="claimVoucherStatisticsService"></property>
+		<property name="claimVoucherService" ref="claimVoucherService"></property>
+	</bean>
+	<bean id="deptYearStatisticsAction" class="cn.jboa.action.DeptYearStatisticsAction">
+		<property name="deptYearStatisticsService" ref="claimVouyearStatisticsService"></property>
+		<property name="claimVoucherService" ref="claimVoucherService"></property>
+	</bean>
+	<bean id="compMonthStatisticsAction" class="cn.jboa.action.CompMonthStatisticsAction">
+		<property name="statisticsService" ref="claimVoucherStatisticsService"></property>
+		<property name="claimVoucherService" ref="claimVoucherService"></property>
+	</bean>
+	<bean id="compYearStatisticsAction" class="cn.jboa.action.CompYearStatisticsAction">
+		<property name="deptYearStatisticsService" ref="claimVouyearStatisticsService"></property>
+		<property name="claimVoucherService" ref="claimVoucherService"></property>
+	</bean>
+
+	<bean id="checkResultAction" class="cn.jboa.action.CheckResultAction" singleton="false">
+		<property name="checkResultService" ref="checkResultService"></property>
+	</bean>
+	<bean id="leaveAction" class="cn.jboa.action.LeaveAction" singleton="false">
+		<property name="leaveService" ref="leaveService"></property>
+	</bean>
+
+</beans>

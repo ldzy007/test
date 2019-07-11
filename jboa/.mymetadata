@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="JBOA_14DM"
+  id="myeclipse.1453957730858"
+  context-root="/JBOA_14DM"
+  j2ee-spec="6.0"
+  archive="JBOA_14DM.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

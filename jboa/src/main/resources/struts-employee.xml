@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="employee" extends="struts-default">
+		<!-- 登录操作Action配置 -->
+		<action name="login" class="empAction" method="login">
+			<result name="input" type="dispatcher">/login.jsp</result>
+			<!-- redirect重定向不会重新提交表单 -->
+			<result>/index.jsp</result>
+		</action>
+		<action name="logout" class="empAction" method="logout">
+			<result name="success" type="redirect">/login.jsp</result>
+		</action>
+	</package>
+</struts>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+ 
+	<!-- 配置定时任务 -->
+	<!-- 配置job -->
+	<bean id="statisticsJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="claimVoucherStatisticsService" ></property>
+		<property name="targetMethod" value="saveVoucherStatisticsByMonth"></property> 
+	</bean>
+	
+	<bean id="yearStatisticsJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="claimVouyearStatisticsService" ></property>
+		<property name="targetMethod" value="saveVoucherStatisticsByYear"></property> 
+	</bean>
+	
+	<!-- 配置触发器  -->
+	<bean id="monthTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="statisticsJob"></property>
+		<!-- 每月15日凌晨1点 -->
+		<property name="cronExpression" value="0 0 1 15 * ?"></property>
+	</bean>
+	<bean id="yearTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="yearStatisticsJob"></property>
+		<!-- 每年2月15日凌晨1点 -->
+		<property name="cronExpression" value="0 0 1 15 2 ? *"></property>
+	</bean>
+	
+	
+	
+	<!-- 配置调度器 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<!-- 指定触发器 -->
+				<ref bean="monthTrigger"/>
+				<ref bean="yearTrigger" />
+				<!-- 可以在这里添加其他的触发器 -->
+			</list>
+		</property>
+	</bean>
+</beans>
