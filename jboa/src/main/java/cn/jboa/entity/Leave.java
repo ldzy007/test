@@ -5,7 +5,7 @@ import java.util.Date;
 
 
 /**
- * Leave entity. @author MyEclipse Persistence Tools
+ * 请假
  */
 
 public class Leave  implements java.io.Serializable {

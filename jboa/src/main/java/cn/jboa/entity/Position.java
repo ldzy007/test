@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 /**
  *职位
- *
  */
 @SuppressWarnings("unchecked")
 public class Position implements java.io.Serializable {
